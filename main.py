@@ -20,6 +20,7 @@ player_card1, player_card2 = x[0], x[1]
 dealer_card1, dealer_card2 = x[2], x[3]
 player_cards_string = "Player: " + str(x[0]) + ", " + str(x[1])
 dealer_cards_string = "Player: " + str(x[2]) + ", " + str(x[3])
+aceValue = ""
 
 #This will display the players and the dealers cards. I displayed it as a string just in case the player is given an Ace, Jack, Queen or King.
 display_player = playerName + ": your cards are " + str(x[0]) + ", " + str(x[1])
@@ -30,10 +31,22 @@ if player_card1 == "J" or player_card1 == "Q" or player_card1 == "K":
   player_card1 = 10
 elif player_card2 == "J" or player_card2 == "Q" or player_card2 == "K":
   player_card2 = 10
+#If the player gets an Ace they will get to choose between 1 or 11
 elif player_card1 == "Ace":
-  player_card = 1 or 11
+  print("What value would you like your Ace to be 1 or 11? ")
+  aceValue = input()
+  if aceValue == "1":
+    player_card1 = 1
+  elif aceValue == "11":
+    player_card = 11
 elif player_card2 == "Ace":
   player_card2 = 1 or 11
+  print("What value would you like your Ace to be 1 or 11? ")
+  aceValue = input()
+  if aceValue == "1":
+    player_card2 = 1
+  elif aceValue == "11":
+    player_card2 = 11
 
 player_total_score = player_card1 + player_card2
 print(playerName + ": your current total is: " + str(player_total_score))
@@ -56,9 +69,9 @@ if dealer_card1 == "J" or dealer_card1 == "Q" or dealer_card1 == "K":
 elif dealer_card2 == "J" or dealer_card2 == "Q" or dealer_card2 == "K":
   dealer_card2 = 10
 elif dealer_card1 == "Ace":
-  dealer_card = 1 or 11
+  dealer_card = 1
 elif dealer_card2 == "Ace":
-  dealer_card2 = 1 or 11
+  dealer_card2 = 1
 
 dealer_total_score = dealer_card1 + dealer_card2
 print("Dealer: your current total is: " + str(dealer_total_score))
@@ -119,6 +132,5 @@ if player_total_wins == 0 and player_total_busts == 0:
   elif player_total_score == dealer_total_score:
     print("It's a tie!")
   elif player_total_score < dealer_total_score:
-    print("The dealer wins.")
-    
+    print("The dealer wins.")    
 
