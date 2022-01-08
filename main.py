@@ -105,7 +105,7 @@ while hit == 'y':
     player_total_busts = 1 #They player's total bust score will increase to 1 because they went over 21.
     break
 #If the player reaches this part in the code then they did not hit 21 nor did they bust. So, they can continue to play.
-  hit = input(playerName + ": if you would like to hit please type 'y':   ")
+  hit = input(playerName + ": if you would like to hit please type 'y':   ").lower()
 
 dealer_total_hits = 0
 dealer_total_wins = 0
